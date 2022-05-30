@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0392d92e8e99244296dc9c776a94e2e, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  Levels:
+    LevelsPrefabs:
+    - {fileID: 318049641530417079, guid: 93d0b39e5aca3401db86fd307e502fb9, type: 3}
+  HUD:
+    PunchEase: 4
+    PunchTime: 0.5
+    PunchScale: 1.2
+    Scale: 1
+    ScaleTime: 0.15
+    Tween: 12
+    CurrencyImgScaleFactor: 0.2
+    TapToStartScale: 10
+    MoveFactor: 96
+    ToggleTime: 0.2
+  npcProperties:
+    materials:
+    - {fileID: 2100000, guid: 20db24bd157384c21a98faff8ff32078, type: 2}
+    - {fileID: 2100000, guid: 909b1905f21024b9ba95b42ddecae35a, type: 2}
+    - {fileID: 2100000, guid: 28ab5a77869924774a2e1c648c453aba, type: 2}
+    - {fileID: 2100000, guid: e5d269c372105492982ca61a9af258ee, type: 2}
+    - {fileID: 2100000, guid: ea78a5ba03f554b98acb9d43da932e40, type: 2}
+    - {fileID: 2100000, guid: 58ecc55e202b1422a8963ed36b0a974a, type: 2}
+    - {fileID: 2100000, guid: af3dab8fd990d489e87edfb91b45f06f, type: 2}
+    crownRotatoinTime: 1
+  obstacleProps:
+    timeToRotate: 0.6
+    rotationAmount: -100

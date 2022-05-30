@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f800fd6aa56c44d509e6bcb7b610e9d0, type: 3}
+  m_Name: AniamtionData
+  m_EditorClassIdentifier: 
+  Run: {fileID: 11400000, guid: b6335f45ede86473693b92fc42ffb2a7, type: 2}
+  Idle: {fileID: 11400000, guid: 9ec3f975b91b94f3c9ebba43f09ec3f1, type: 2}
+  grabGun: {fileID: 11400000, guid: 87c067665dfe047a9b04f98df81c2670, type: 2}
+  putBackGun: {fileID: 11400000, guid: 6fd6193b938fc401585b5c9d36474b73, type: 2}
+  limping: {fileID: 11400000, guid: 67ed4da16bfd24aab97c12d4c1411406, type: 2}
+  hurt1: {fileID: 11400000, guid: 8e5032aa70eb940978d3e51e393761fa, type: 2}
+  hurt2: {fileID: 11400000, guid: 1ee250e0069074010a1e9b99ae474640, type: 2}
+  hurt3: {fileID: 11400000, guid: 49b022ad7af514278af9a95619e053a8, type: 2}
+  hurt4: {fileID: 11400000, guid: 3182a33d540be496bbed43b8312d0a2c, type: 2}
+  defeat: {fileID: 11400000, guid: 386d5c63bab34497e83a4d231c00e863, type: 2}
+  won: {fileID: 11400000, guid: 35511e5b4ec1d401389275832936cd8f, type: 2}
