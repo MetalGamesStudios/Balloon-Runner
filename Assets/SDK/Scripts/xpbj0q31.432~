@@ -1,0 +1,152 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using MuhammadTouseefSDK;
+using TMPro;
+public class HUDManagerBase : Singleton<HUDManager>
+{
+    #region References
+    
+    [ShowInInspector] public ReferenceStruct References;
+
+
+    [Button]
+    public void GetRefeences()
+    {
+        References.WelcomeScreen = transform.FindDeepChild<RectTransform>("welcome");
+        References.InGamePanel = transform.FindDeepChild<RectTransform>("in_game");
+        References.LevelCompletePanel = transform.FindDeepChild<RectTransform>("levelcomplete");
+        References.LevelFailPanel = transform.FindDeepChild<RectTransform>("levelfail");
+        References.StartBtn = transform.FindDeepChild<RectTransform>("startbutton");
+        References.SettingsPanel = transform.FindDeepChild<RectTransform>("settings");
+        References.BgPanel = transform.FindDeepChild<RectTransform>("bgpanel");
+        References.CurrencyTxt = transform.FindDeepChild<TextMeshProUGUI>("currencytxt");
+        References.CurrencyImg = transform.FindDeepChild<RectTransform>("currencyimg");
+    }
+    #endregion
+
+    #region LoopFunctions
+    private void OnEnable()
+    {
+        GameManager.OnLevelLoaded += OnLevelLoaded;
+        GameManager.OnLevelStarted += OnLevelStarted;
+        GameManager.OnCurrencyChanged += OnCurrencyChanged;
+
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnLevelLoaded -= OnLevelLoaded;
+        GameManager.OnLevelStarted -= OnLevelStarted;
+        GameManager.OnCurrencyChanged -= OnCurrencyChanged;
+
+    }
+
+    private void OnLevelStarted()
+    {
+        References.WelcomeScreen.gameObject.SetActive(false);
+        HUDButtons.Instance.Buttons.SettingsButton.gameObject.SetActive(false);
+    }
+
+    private void OnCurrencyChanged(int Currency)
+    {
+        References.CurrencyTxt.text = Currency.ToString();
+        PunchRect(References.CurrencyImg,1.2f,0.1f,0);
+    }
+    private void OnLevelLoaded()
+    {
+        References.WelcomeScreen.gameObject.SetActive(true);
+        References.InGamePanel.gameObject.SetActive(true);
+        References.CurrencyTxt.text = StorageManager.Instance.Wallet.Currency.ToString();
+        PunchRect(References.StartBtn);
+    }
+
+
+    #endregion
+
+    #region Utilities
+    public void PunchRect(RectTransform i_Rect, int i_Loop = -1)
+    {
+        i_Rect.DOScale(i_Rect.localScale * GameConfig.Instance.HUD.PunchScale, GameConfig.Instance.HUD.PunchTime)
+            .SetEase(GameConfig.Instance.HUD.PunchEase).SetDelay(1).SetLoops(i_Loop, LoopType.Yoyo);
+
+    }
+
+    public void PunchRect(RectTransform i_Rect, float i_ScaleFactor, float i_Time, int i_Loop = -1,float i_Delay=1)
+    {
+        i_Rect.DOPunchScale(i_Rect.localScale * i_ScaleFactor, i_Time)
+            .SetEase(GameConfig.Instance.HUD.PunchEase).SetDelay(i_Delay).SetLoops(i_Loop, LoopType.Yoyo);
+
+    }
+
+
+    public delegate void Method();
+
+    //public void ShowScreen(RectTransform i_Screen, float i_Scale, float i_ShowTime)
+    //{
+
+    //}
+    //public void ShowScreen(RectTransform i_Screen, float i_Scale)
+    //{
+    //}
+    public void ShowScreen(RectTransform i_Screen, Vector3 Scale, float i_ScaleTime)
+    {
+        i_Screen.localScale = Vector3.zero;
+        i_Screen.gameObject.SetActive(true);
+        i_Screen.DOScale(Scale, i_ScaleTime).SetUpdate(true)
+              .SetEase(GameConfig.Instance.HUD.Tween).OnComplete(() =>
+              {
+
+              });
+    }
+
+    /// <summary>
+    ///Scale And Show RectrancformScreen
+    /// </summary>
+
+
+    public void ShowScreen(RectTransform i_Screen, Method i_Functintocall = null)
+    {
+        i_Screen.localScale = Vector3.zero;
+        i_Screen.gameObject.SetActive(true);
+        i_Screen.DOScale(GameConfig.Instance.HUD.Scale, GameConfig.Instance.HUD.ScaleTime).SetUpdate(true)
+              .SetEase(GameConfig.Instance.HUD.Tween).OnComplete(() =>
+              {
+                  if (i_Functintocall != null)
+                      i_Functintocall();
+              });
+    }
+    /// <summary>
+    ///Scale And Hide RectrancformScreen
+    /// </summary>
+
+
+    public void HideScreen(RectTransform i_Screen, Method i_Functintocall = null)
+    {
+        i_Screen.DOScale(Vector3.zero, GameConfig.Instance.HUD.ScaleTime).SetUpdate(true)
+              .SetEase(GameConfig.Instance.HUD.Tween).OnComplete(() =>
+              {
+                  if (i_Functintocall != null)
+                      i_Functintocall();
+              });
+    }
+
+    #endregion
+}
+
+[System.Serializable]
+public class ReferenceStruct
+{
+    [SerializeField, ReadOnly] public RectTransform WelcomeScreen;
+    [SerializeField, ReadOnly] public RectTransform InGamePanel;
+    [SerializeField, ReadOnly] public RectTransform LevelCompletePanel;
+    [SerializeField, ReadOnly] public RectTransform LevelFailPanel;
+    [SerializeField, ReadOnly] public RectTransform StartBtn;
+    [SerializeField, ReadOnly] public RectTransform SettingsPanel;
+    [SerializeField, ReadOnly] public RectTransform BgPanel;
+    [SerializeField, ReadOnly] public TextMeshProUGUI CurrencyTxt;
+    [SerializeField, ReadOnly] public RectTransform CurrencyImg;
+}

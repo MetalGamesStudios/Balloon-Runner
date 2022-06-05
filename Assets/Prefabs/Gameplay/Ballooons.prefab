@@ -176,6 +176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Balloon_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5f19867beaa64585b3368c16e5ae7fc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5f19867beaa64585b3368c16e5ae7fc, type: 3}
 --- !u!4 &29095964739730720 stripped
@@ -309,6 +314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Balloon_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5f19867beaa64585b3368c16e5ae7fc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5f19867beaa64585b3368c16e5ae7fc, type: 3}
 --- !u!1 &243878641052690756 stripped
@@ -441,6 +451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balloon_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5f19867beaa64585b3368c16e5ae7fc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5f19867beaa64585b3368c16e5ae7fc, type: 3}

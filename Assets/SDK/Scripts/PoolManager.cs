@@ -113,6 +113,7 @@ public class PoolManager : PoolManagerBase
                 {
                     prefab.gm.transform.position = i_Position;
                     prefab.gm.transform.rotation = i_Rotation;
+                    prefab.renderer.Clear();
                     prefab.gm.SetActive(true);
                 }
             }
@@ -135,6 +136,7 @@ public class PoolManager : PoolManagerBase
                 {
                     prefab.transform.position = i_Position;
                     prefab.transform.rotation = i_rotation;
+                  
                     prefab.SetActive(true);
 
                     StartCoroutine(DequewTween(holderScript));

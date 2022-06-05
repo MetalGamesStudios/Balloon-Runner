@@ -26,7 +26,9 @@ public class PlayerController2 : MonoBehaviour
 
     [SerializeField] public PlayerMovementProps movementProps;
     public RigBuilder rigBuilder;
+    
     [SerializeField] private GameObject gunInHand, gunInSpine;
+    [SerializeField] public FeedBacker _feedBacker;
     private bool _canRotate = true;
 
     private void Awake()

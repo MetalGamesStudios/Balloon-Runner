@@ -11,7 +11,11 @@ public class fire : MonoBehaviour
 
     private void OnEnable()
     {
-        DOVirtual.DelayedCall(0.07f, delegate { renderer.enabled = true; });
+        DOVirtual.DelayedCall(0.04f, delegate
+        {
+            renderer.Clear();
+            renderer.enabled = true;
+        });
     }
 
     private void Update()

@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 79f0d16cfdf2fbf4293b8b61be9cb584,
     type: 3}
   m_ValidKeywords:
-  - BOOLEAN_0107A33C3886411D8E1319901D3A8A0D_ON
+  - BOOLEAN_6C4164AC_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -36,15 +36,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BOOLEAN_0107A33C3886411D8E1319901D3A8A0D: 1
-    - BOOLEAN_6C4164AC: 0
-    - Vector1_BF525535: 1.52
+    - BOOLEAN_0107A33C3886411D8E1319901D3A8A0D: 0
+    - BOOLEAN_6C4164AC: 1
+    - Vector1_BF525535: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_58E0201D: {r: 1.6156863, g: 3.4666667, b: 0.34509805, a: 0.69411767}
+    - Color_58E0201D: {r: 0.40392157, g: 0.8666667, b: 0.08627451, a: 0.40392157}
   m_BuildTextureStacks: []
---- !u!114 &7282473941085416555
+--- !u!114 &449562072724587543
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

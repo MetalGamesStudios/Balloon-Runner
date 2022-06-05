@@ -1,0 +1,104 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using MuhammadTouseefSDK;
+public class HUDManagerBase : Singleton<HUDManager>
+{
+    #region References
+    [SerializeField, ReadOnly] RectTransform WelcomeScreen;
+    [SerializeField, ReadOnly] RectTransform InGamePanel;
+    [SerializeField, ReadOnly] RectTransform LevelCompletePanel;
+    [SerializeField, ReadOnly] RectTransform LevelFailPanel;
+    [SerializeField, ReadOnly] RectTransform StartBtn;
+    [SerializeField, ReadOnly] RectTransform SettingsPanel;
+
+
+
+    [Button]
+    public void GetRefeences()
+    {
+        WelcomeScreen = transform.FindDeepChild<RectTransform>("welcome");
+        InGamePanel = transform.FindDeepChild<RectTransform>("in_game");
+        LevelCompletePanel = transform.FindDeepChild<RectTransform>("levelcomplete");
+        LevelFailPanel = transform.FindDeepChild<RectTransform>("levelfail");
+        StartBtn = transform.FindDeepChild<RectTransform>("startbutton");
+        SettingsPanel = transform.FindDeepChild<RectTransform>("settings");
+    }
+    #endregion
+
+    #region LoopFunctions
+    private void OnEnable()
+    {
+        GameManager.OnLevelLoaded += OnLevelLoaded;
+        GameManager.OnLevelStarted += OnLevelStarted;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnLevelLoaded -= OnLevelLoaded;
+        GameManager.OnLevelStarted -= OnLevelStarted;
+    }
+
+    private void OnLevelStarted()
+    {
+        WelcomeScreen.gameObject.SetActive(false);
+
+    }
+    private void OnLevelStarted() 
+    {
+    }
+    private void OnLevelLoaded()
+    {
+        WelcomeScreen.gameObject.SetActive(true);
+        InGamePanel.gameObject.SetActive(true);
+        PunchRect(StartBtn);
+    }
+    public void ShowSettings()
+    {
+        Time.timeScale = 0;
+        InGamePanel.gameObject.SetActive(false);
+        ShowScreen(SettingsPanel);
+    }
+    #endregion
+
+    #region Utilities
+    public void PunchRect(RectTransform i_Rect)
+    {
+        i_Rect.DOScale(i_Rect.localScale * GameConfig.Instance.HUD.PunchScale, GameConfig.Instance.HUD.PunchTime).SetEase(GameConfig.Instance.HUD.PunchEase).SetDelay(1).SetLoops(-1, LoopType.Yoyo);
+
+    }
+    public delegate void Method();
+
+    //public void ShowScreen(RectTransform i_Screen, float i_Scale, float i_ShowTime)
+    //{
+
+    //}
+    //public void ShowScreen(RectTransform i_Screen, float i_Scale)
+    //{
+    //}
+    //public void ShowScreen(RectTransform i_Screen, float i_ScaleTime, bool i_Time)
+    //{
+    //}
+
+    /// <summary>
+    ///Scale And Show RectrancformScreen
+    /// </summary>
+
+
+    public void ShowScreen(RectTransform i_Screen, Method i_Functintocall = null)
+    {
+        i_Screen.localScale = Vector3.zero;
+        i_Screen.gameObject.SetActive(true);
+        i_Screen.DOScale(GameConfig.Instance.HUD.Scale, GameConfig.Instance.HUD.ScaleTime).SetUpdate(true)
+              .SetEase(GameConfig.Instance.HUD.Tween).OnComplete(() =>
+              {
+                  if (i_Functintocall != null)
+                      i_Functintocall();
+              });
+    }
+
+    #endregion
+}

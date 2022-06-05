@@ -97,8 +97,8 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SkyExponent1: 4.38
-    - _SkyExponent2: 1.46
+    - _SkyExponent1: 3.81
+    - _SkyExponent2: 10.1
     - _SkyIntensity: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -116,11 +116,11 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SkyColor1: {r: 0.051886797, g: 0.43437237, b: 1, a: 0}
-    - _SkyColor2: {r: 0.8254717, g: 0.8990474, b: 1, a: 0}
+    - _SkyColor1: {r: 0, g: 0.75679004, b: 0.8392157, a: 0}
+    - _SkyColor2: {r: 1, g: 1, b: 1, a: 0}
     - _SkyColor3: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SunColor: {r: 1, g: 0.98999995, b: 0.87, a: 1}
+    - _SunColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
     - _SunVector: {r: 0.269, g: 0.615, b: 0.74, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3957618583076756106

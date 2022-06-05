@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using UnityEngine.UI;
+using MuhammadTouseefSDK;
+public class HUDButtons : Singleton<HUDButtons>
+{
+    public Buttons Buttons;
+
+    private void OnEnable()
+    {
+        Buttons.StartButton.onClick.AddListener(StartLevel);
+    }
+
+    void StartLevel()
+    {
+        GameManager.Instance.StartLevel();
+    }
+    
+
+}
+
+[Serializable]
+
+public class Buttons
+{
+    public Button StartButton;
+    public Button SettingsButton;
+}

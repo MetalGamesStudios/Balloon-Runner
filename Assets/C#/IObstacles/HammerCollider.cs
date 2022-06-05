@@ -29,7 +29,8 @@ public class HammerCollider : MonoBehaviour
         time++;
 
         AudioManager.instance.Play("grunt");
-
+playerController2._feedBacker.BadFeedback();
+        
         CameraSetup.Instance.ShakeCameraInvoker();
         HapticsManager.Instance.StrongHaptic();
         DOVirtual.DelayedCall(time, delegate

@@ -10,7 +10,8 @@ public class EnemyMovement : MonoBehaviour
     [HideInInspector] public AnimancerController animancerController;
     [HideInInspector] public FiringController firingController;
     [SerializeField] public GameObject gunInHand, gunInSpine;
-
+    public FeedBacker FeedBacker;
+    
     private bool _gameStarted;
     public bool canMove;
     private bool _canRotate;
@@ -22,7 +23,6 @@ public class EnemyMovement : MonoBehaviour
     private float _targetZ;
     private float _forwardSpeed;
     private float _horizontalSpeed;
-
     public float mForwardSpeed
     {
         set { _forwardSpeed = value; }

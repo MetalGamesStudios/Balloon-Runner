@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using MetalGamesSDK;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class FiringController : MonoBehaviour
     [SerializeField] private bool canFire = true;
     [SerializeField] public bool canShoot = true;
     
+    [SerializeField] private Vector3 offset;
     private bool _gameStarted;
 
     private Vector3 _offsetFire;
@@ -42,6 +44,7 @@ public class FiringController : MonoBehaviour
     {
         GameManager.OnLevelStarted += OnLevelStarted;
         GameManager.OnLeveLoadComplete += OnLevelLoaded;
+        GameManager.OnLevelFailed+= delegate { canShoot = false; };
     }
 
     private void OnDisable()
@@ -60,7 +63,7 @@ public class FiringController : MonoBehaviour
 
         var initailpos = firingOrigin.position;
 
-        Ray ra = new Ray(firingOrigin.position, (targetTransform.position - initailpos) * 100);
+        Ray ra = new Ray(firingOrigin.position, ((targetTransform.position+offset) - initailpos) * 100);
 
         Debug.DrawRay(ra.origin, ra.direction * 100, Color.blue, 0.001f);
         if (Physics.Raycast(ra, 100, balloonMask))
@@ -68,7 +71,10 @@ public class FiringController : MonoBehaviour
             if (!canShoot)
             {
                 Shoot?.Invoke();
-                canShoot = true;
+                DOVirtual.DelayedCall(0.15f, delegate
+                {
+                    canShoot = true;
+                });
             }
         }
         else if (canShoot)
