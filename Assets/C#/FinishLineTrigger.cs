@@ -18,7 +18,7 @@ public class FinishLineTrigger : MonoBehaviour
         }
         else if (other.TryGetComponent(out PlayerController2 cm))
         {
-            GameManager.Instance.LevelComplete();
+         GameManager.OnReachingFinishLIne?.Invoke();
         }
     }
 }

@@ -7,8 +7,7 @@ using MetalGamesSDK;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class PlayerController2 : MonoBehaviour
-{
+public class PlayerController2 : Singleton<PlayerController2>{
     [HideInInspector] public AnimancerController animancerController;
     [HideInInspector] public FiringController firingController;
 

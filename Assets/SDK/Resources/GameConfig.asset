@@ -29,12 +29,6 @@ MonoBehaviour:
   npcProperties:
     materials:
     - {fileID: 2100000, guid: 20db24bd157384c21a98faff8ff32078, type: 2}
-    - {fileID: 2100000, guid: 909b1905f21024b9ba95b42ddecae35a, type: 2}
-    - {fileID: 2100000, guid: 28ab5a77869924774a2e1c648c453aba, type: 2}
-    - {fileID: 2100000, guid: e5d269c372105492982ca61a9af258ee, type: 2}
-    - {fileID: 2100000, guid: ea78a5ba03f554b98acb9d43da932e40, type: 2}
-    - {fileID: 2100000, guid: 58ecc55e202b1422a8963ed36b0a974a, type: 2}
-    - {fileID: 2100000, guid: af3dab8fd990d489e87edfb91b45f06f, type: 2}
     crownRotatoinTime: 1
   obstacleProps:
     timeToRotate: 0.6

@@ -9,9 +9,14 @@ public class BalloonManager : MonoBehaviour
 {
     public List<Balloon> balloons = new List<Balloon>();
     [ShowInInspector] public GameObject obstacle;
-    [SerializeField] private Collider _collider;
+ private Collider[] _colliders;
 
-    public void RemoveBalloon()
+ private void Awake()
+ {
+     _colliders = GetComponents<Collider>();
+ }
+
+ public void RemoveBalloon()
     {
         var balloon = balloons[0];
         if (balloons.Contains(balloon))
@@ -22,7 +27,10 @@ public class BalloonManager : MonoBehaviour
 
         if (balloons.Count == 0)
         {
-            _collider.enabled = false;
+            foreach (var VARIABLE in _colliders)
+            {
+                VARIABLE.enabled = false;
+            }
             obstacle.GetComponent<IObstacle>().Drop();
         }
     }

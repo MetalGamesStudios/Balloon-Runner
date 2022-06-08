@@ -13,7 +13,7 @@ namespace MetalGamesSDK
     public class GameManager : GameManagerBase
     {
         public static Action OnReachingNextArena;
-
+public static Action OnReachingFinishLIne;
         private void Start()
         {
             LoadLevel();

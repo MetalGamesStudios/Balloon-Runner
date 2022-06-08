@@ -80,6 +80,7 @@ public class EnemyMovement : MonoBehaviour
         firingController.Unshoot += OnUnshoot;
         GameManagerBase.OnLevelCompleted += OnLevelComplete;
         GameManager.OnLevelFailed += OnLevelFailed;
+        GameManager.OnReachingFinishLIne += OnReachingLine;
     }
 
     private void OnDisable()
@@ -91,8 +92,14 @@ public class EnemyMovement : MonoBehaviour
 
         GameManagerBase.OnLevelCompleted -= OnLevelComplete;
         GameManager.OnLevelFailed -= OnLevelFailed;
+        GameManager.OnReachingFinishLIne -= OnReachingLine;
     }
 
+    void OnReachingLine()
+    {
+        animancerController.IdleAnimation();
+        _forwardSpeed = 0;
+    }
     void OnLevelLoadComplete()
     {
         canMove = true;
